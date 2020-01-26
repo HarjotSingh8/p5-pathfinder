@@ -1,2 +1,2 @@
 # p5-pathfinder
-pathfinder in p5
+https://harjotsingh8.github.io/p5-pathfinder/
