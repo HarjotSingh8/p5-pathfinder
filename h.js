@@ -18,7 +18,6 @@ function solveB() {
         if(openSetB[i].hB<=winnerB.hB) {
           for(var j = 0; j<openSetB[i].neighbours.length; j++) {
             b=openSetB[i].neighbours[j];
-            console.log(openSetB.length);
             if(!b.closedB && !b.wall) {
               calcB(openSetB[i], b);
               checkPushB(b);
@@ -42,7 +41,6 @@ function removeFromOpenB(x) {
   //for(var x = openSetB.length-1; x>=0; x--) {
     //if(openSetB[x].i==a.i && openSetB[x].j==a.j) {
       openSetB.splice(x, 1);
-      console.log("removed");
     //}
   //}
 }
@@ -84,18 +82,18 @@ function findWinnerB() {
 function drawB() {
   //drawMap();
   //drawPoints();
-  fill(255,0,0);
+  /*fill(255,0,0);
   var path = target;
-  if(!completedB) {
-    findWinnerB();
-    var path = winnerB;
-  }
+  if(!completedB) {*/
+    //findWinnerB();
+    var path = target;
+  //}
 
   noFill();
   stroke(0,0,255);
   strokeWeight(eScale/2);
   beginShape();
-  if(completedB)
+  //if(completedB)
   vertex(path.eXPos, path.eYPos);
   while(path!=start) {
     path=path.previousB;
@@ -103,7 +101,7 @@ function drawB() {
   }
   endShape();
   noStroke();
-  fill(0,255,0);
+  //fill(0,255,0);
   //for(var i = 0; i<openSetB.length; i++) {
   //  ellipse(openSetB[i].eXPos, openSetB[i].eYPos, eHeight, ewidth);
   //}

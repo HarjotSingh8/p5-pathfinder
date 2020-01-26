@@ -56,15 +56,15 @@ function drawInput() {
 function gen() {
   cols=colInput.value();
   rows=rowInput.value();
-  //wallPercent=wallInput.value()/100;
+  wallPercent=wallInput.value()/100;
   starti=startInputi.value();
   startj=startInputj.value();
   targeti=targetInputi.value();
   targetj=targetInputj.value();
 
-  makeMaze();
+  pointsConstructor();
   drawMap();
-  showPoints();
+  drawPoints();
   initialiseSolve();}
 
 function regen() {
@@ -74,7 +74,7 @@ function regen() {
   boolC = false;
   completedA=false;
   completedB=false;
-  //solveBool=true
+
   gen();
   solve();
   //initialiseSolve();

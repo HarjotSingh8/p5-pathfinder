@@ -18,7 +18,6 @@ function solveC() {
         if(openSetC[i].hB<=winnerC.hB) {
           for(var j = 0; j<openSetC[i].neighbours.length; j++) {
             b=openSetC[i].neighbours[j];
-            console.log(openSetC.length);
             if(!b.closedC && !b.wall) {
               calcB(openSetB[i], b);
               checkPushB(b);
@@ -42,7 +41,6 @@ function removeFromOpenC(x) {
   //for(var x = openSetB.length-1; x>=0; x--) {
     //if(openSetB[x].i==a.i && openSetB[x].j==a.j) {
       openSetC.splice(x, 1);
-      console.log("removed");
     //}
   //}
 }

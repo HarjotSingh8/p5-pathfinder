@@ -22,28 +22,33 @@ function solve() {
   //for(var i=0; i<100; i++) {
   //while(boolA || boolB || boolC) {
     if(boolA) {
-      console.log('ran');
       findWinnerA();
       solveA();
-      findWinnerA();
+      //findWinnerA();
     }
     else {
       distA=target.gA;
     }
-    drawA();
+    //drawA();
     if(boolB) {
       findWinnerB();
       solveB();
-      findWinnerB();
+      //findWinnerB();
     }
     else {
       distB=target.gB;
     }
-    drawB();
+    //drawB();
     if(boolC) {
 
     }
   //}
+  if(!boolA) {
+    drawA();
+  }
+  if(!boolB) {
+    drawB();
+  }
 }
 
 function resolve() {
@@ -51,7 +56,7 @@ function resolve() {
   //resettig closed values
   for(var i = 0; i<cols; i++) {
     for(var j = 0; j<rows; j++) {
-      points[i][j].closedA=false;
+      grid[i][j].closedA=false;
     }
   }
   //clearing openSet

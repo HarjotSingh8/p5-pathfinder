@@ -15,13 +15,9 @@ function solveA() {
         boolA=false;
       }
       a=openSetA[i];
-      //console.log(a.fa);
-      console.log(a.x+" "+a.y);
         if(openSetA[i].fA<=winnerA.fA) {
-          console.log(openSetA.length);
           for(var j = 0; j<openSetA[i].neighbours.length; j++) {
             b=openSetA[i].neighbours[j];
-
             if(!b.closedA && !b.wall) {
               calcA(openSetA[i], b);
               checkPushA(b);
@@ -50,21 +46,20 @@ function removeFromOpenA(x) {
 }
 
 function calcA(a, b) {
-  var g=a.gA+Math.sqrt( (a.x-b.x)*(a.x-b.x) + (a.x-b.x)*(a.x-b.x) );
+  var g=a.gA+Math.sqrt( (a.i-b.i)*(a.i-b.i) + (a.j-b.j)*(a.j-b.j) );
   if(g<b.gA || b.gA==0) {
     b.gA=g;
     b.previousA=a;
   }
   //b.h=Math.sqrt( (b.i-targeti)*(b.i-targeti) + (b.j-targetj)*(b.j-targetj) );
-  b.hA = abs(b.x-targeti) + abs(b.x-targetj);
+  b.hA = abs(b.i-targeti) + abs(b.j-targetj);
   b.fA=b.gA+b.hA;
-  console.log('ran calc a'+b.fA);
 }
 
 function checkPushA(a) {
   var x = true;
   for(var i=0; i<openSetA.length; i++) {
-    if(openSetA[i].x==a.x && openSetA[i].y==a.y) {
+    if(openSetA[i].i==a.i && openSetA[i].j==a.j) {
       x=false;
     }
   }
@@ -81,30 +76,29 @@ function findWinnerA() {
         winnerA=openSetA[i];
       }
     }
-    console.log(openSetA.length);
     distA=winnerA.gA;
 }
 
 function drawA() {
-  drawMap();
-  showPoints();
+  /*drawMap();
+  drawPoints();
   fill(255,0,0);
   var path = target;
   if(!completedA) {
-    findWinnerA();
-    var path = winnerA;
-  }
+    findWinnerA();*/
+    var path = target;
+  //}
 
 
   noFill();
   stroke(255);
   strokeWeight(eScale/2);
   beginShape();
-  if(completedA)
-  vertex(target.xp, target.yp);
+  //if(completedA)
+  vertex(target.eXPos, target.eYPos);
   while(path!=start) {
     path=path.previousA;
-    vertex(path.xp, path.yp);
+    vertex(path.eXPos, path.eYPos);
   }
   endShape();
   noStroke();

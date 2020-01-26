@@ -6,7 +6,6 @@ var canvasHeight;
   var wallInput;
   var buttonGenerate;
   var buttonSolve;
-  var solveBool=false;
 //
 
 function setup() {
@@ -15,13 +14,13 @@ function setup() {
   createCanvas(canvasWidth, canvasHeight);
   //Inputs
   {
-    colInput = createInput(50, 'numbers');
-    rowInput = createInput(40, 'numbers');
+    colInput = createInput(100, 'numbers');
+    rowInput = createInput(100, 'numbers');
     wallInput = createInput(40, 'numbers');
-    startInputi = createInput('2', 'numbers');
-    startInputj = createInput('2', 'numbers');
-    targetInputi = createInput(49, 'numbers');
-    targetInputj = createInput(19, 'numbers');
+    startInputi = createInput('0', 'numbers');
+    startInputj = createInput('0', 'numbers');
+    targetInputi = createInput(colInput.value()-1, 'numbers');
+    targetInputj = createInput(colInput.value()-1, 'numbers');
     buttonGenerate = createButton('Generate');
     buttonSolve = createButton('solve');
   }
@@ -36,20 +35,17 @@ function setup() {
 
 
 function draw() {
-  //if(solveBool==true){
-    solve();
-  //}
+solve();
 
-noStroke();
+/*noStroke();
 fill(255);
 for(var i = 0; i<openSetA.length; i++) {
-  ellipse(openSetA[i].xp, openSetA[i].yp, scaleX/2, scaleY/2);
+  ellipse(openSetA[i].eXPos, openSetA[i].eYPos, eHeight, ewidth);
 }
 fill(255, 0,255);
 for(var i = 0; i<openSetB.length; i++) {
-  ellipse(openSetB[i].xp, openSetB[i].yp, scaleX/2, scaleY/2);
-}
+  ellipse(openSetB[i].eXPos, openSetB[i].eYPos, eHeight, ewidth);
+}*/
 drawOutput();
 
-//console.log("ran");
 }
